@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 70">
+  <rect width="240" height="70" rx="8" fill="#111827"/>
+  <circle cx="45" cy="35" r="14" fill="#00AEEF"/>
+  <path d="M37,35 Q45,23 53,35 Q45,47 37,35" fill="#FFFFFF"/>
+  <text x="70" y="44" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="24" fill="#FFFFFF" letter-spacing="1">DSE</text>
+  <text x="130" y="44" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="10" fill="#9CA3AF">DEEP SEA ELECTRONICS</text>
+</svg>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SL TEC – Total Technical Solution | Powering Maldives Every Island</title>
+  <meta name="description" content="Authorized generator sales, 24/7 repair, preventive maintenance & genuine spare parts delivery across all Maldives islands & resorts. Call 7370267." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+            }
+          },
+          fontFamily: {
+            montserrat: ['Montserrat', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- React 18 and Babel -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      background-color: #050b17;
+      color: #f8fafc;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #050b17; }
+    ::-webkit-scrollbar-thumb { background: #f97316; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+    @keyframes pulseSubtle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.04); }
+    }
+    .pulse-subtle { animation: pulseSubtle 3s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const TARGET_EMAIL = "sltecmaldives@gmail.com";
+
+    const COMPANY_INFO = {
+      name: "SL TEC",
+      tagline: "Total Technical Solution",
+      phone: "7370267",
+      intlPhone: "+960 7370267",
+      whatsapp: "https://wa.me/9607370267?text=Hello%20SL%20TEC,%20I%20need%20generator%20technical%20assistance.",
+      email: TARGET_EMAIL,
+      location: "Boduthakurufaanu Magu, Malé 20026, Republic of Maldives",
+      experienceYears: 28,
+      islandsCovered: "All Maldives Islands",
+      projectsCompleted: "500+",
+      emergencyAvailability: "24/7/365",
+    };
+
+    const MALDIVES_ATOLLS = [
+      "Malé & Kaafu Atoll",
+      "North Ari Atoll (Alif Alif)",
+      "South Ari Atoll (Alif Dhaal)",
+      "Baa Atoll (Dharavandhoo/Eydhafushi)",
+      "Lhaviyani Atoll",
+      "Noonu Atoll",
+      "Raa Atoll",
+      "Shaviyani Atoll",
+      "Haa Alif Atoll",
+      "Haa Dhaalu Atoll",
+      "Faafu Atoll",
+      "Dhaalu Atoll",
+      "Meemu Atoll",
+      "Thaa Atoll",
+      "Laamu Atoll",
+      "Gaafu Alif Atoll",
+      "Gaafu Dhaalu Atoll",
+      "Gnaviyani Atoll (Fuvahmulah)",
+      "Seenu Atoll (Addu City)",
+    ];
+
+    // Updated exact services matching the user's flyers
+    const SERVICES = [
+      {
+        id: "generators",
+        icon: "fa-solid fa-wrench",
+        title: "All Types of Generators",
+        shortDesc: "Complete installation, emergency repair, top & major overhaul, and preventive maintenance for all generator makes and models — diesel, gas, and hybrid.",
+        fullDesc: "Expert technical servicing for all industrial and resort generator sets. We perform precision mechanical overhauls, fuel pump & injector calibration, alternator rewinding, and dynamic on-site load-bank testing across all atolls.",
+        features: ["Top & Major Engine Overhauls", "Dynamic On-site Load Bank Testing", "Alternator Rotor & Stator Rewinding", "Fuel Injection Pump & Injector Calibration", "Soundproof Canopy & Exhaust Systems", "Emergency Breakdown Repair"]
+      },
+      {
+        id: "ship-engines",
+        icon: "fa-solid fa-anchor",
+        title: "Ship Engines",
+        shortDesc: "Marine propulsion and auxiliary engine overhaul, diagnostics, transmission repair, and full marine servicing for all vessel types in Maldivian waters.",
+        fullDesc: "Specialized marine mechanical solutions for safari yachts, resort passenger speedboats, cargo dhows, and inter-atoll commercial vessels. We handle marine corrosion, sea-water cooling, and classification compliance.",
+        features: ["Marine Propulsion & Auxiliary Overhauls", "Crankshaft Grinding & Bearing Fitting", "Keel & Heat-Exchanger Descaling", "Hydraulic Transmission & Gearbox Overhauls", "Wet Exhaust Manifold & Thermal Lagging", "Pre-Charter & Drydock Marine Surveys"]
+      },
+      {
+        id: "panel-boards",
+        icon: "fa-solid fa-microchip",
+        title: "Panel Boards & Control Systems",
+        shortDesc: "Design, manufacturing, installation, and maintenance of main electrical switchboards, ATS panels, and advanced industrial control systems.",
+        fullDesc: "Custom-engineered power distribution and motor control center (MCC) panels. We build and maintain high-grade electrical switchboards with ABB and Schneider Electric switchgear, Form 4 segregation, and surge suppression.",
+        features: ["Automatic Transfer Switches (ATS) 100A–4000A", "Main Distribution Switchboards (MDB / SMDB)", "Motor Control Centers (MCC) & VFD Starters", "Circuit Breaker Retrofit & Testing", "Power Factor Correction (PFC) Banks", "Harmonic Filtering & Lightning Surge Protection"]
+      },
+      {
+        id: "engine-generator-controls",
+        icon: "fa-solid fa-sliders",
+        title: "Engine & Generator Control Systems",
+        shortDesc: "Advanced electronic diagnostics, controller programming, multi-genset auto-synchronizing, DSE, ComAp, and automated load sharing.",
+        fullDesc: "Eliminate power outages with seamless multi-generator synchronizing and automated peak-lopping. Our senior control engineers program and troubleshoot Deep Sea Electronics (DSE), ComAp, Woodward, and DEIF controllers on-site.",
+        features: ["Deep Sea (DSE) & ComAp Controller Programming", "Multi-Genset Auto-Synchronizing & Load Sharing", "Automatic Voltage Regulators (AVR) Tuning", "Electronic Speed Governor Calibration", "SCADA & GSM/Ethernet Remote Monitoring", "Fault Code Diagnostics & Sensor Calibration"]
+      },
+      {
+        id: "kitchen-equipment",
+        icon: "fa-solid fa-fire-burner",
+        title: "Kitchen Hood & Kitchen Equipment",
+        shortDesc: "Commercial resort kitchen ventilation, hood exhaust systems, fan motor overhauls, duct maintenance, and industrial kitchen equipment repair.",
+        fullDesc: "Ensuring zero downtime in luxury resort culinary operations. We service commercial kitchen hood extractors, centrifugal exhaust fans, combi-ovens, commercial dishwashers, deep fryers, and industrial refrigeration equipment.",
+        features: ["Kitchen Exhaust Fan Motor Rewinding & Balancing", "Kitchen Hood Grease Filtration & Airflow Balancing", "Commercial Combi-Ovens, Steamers & Ranges", "Industrial Dishwashers & Glasswashers", "Commercial Bakery & Food Processing Equipment", "Ansul Fire Suppression System Coordination"]
+      },
+      {
+        id: "industrial-machinery",
+        icon: "fa-solid fa-gears",
+        title: "Industrial Machinery Equipment",
+        shortDesc: "Comprehensive preventive maintenance and overhaul of heavy industrial machinery, hydraulic systems, pumps, and manufacturing plant equipment.",
+        fullDesc: "Heavy mechanical engineering support for desalination plants, cold storage facilities, island utility providers, and manufacturing yards across Thilafushi and nationwide atolls.",
+        features: ["Industrial High-Pressure Water Pumps", "Hydraulic Cylinder & Valve Block Servicing", "Industrial Air Compressors & Blowers", "Heavy Machinery Gearbox & Bearing Replacement", "Desalination & RO High-Pressure Plant Pumps", "Vibration Analysis & Laser Shaft Alignment"]
+      }
+    ];
+
+    const COMMITMENTS = [
+      { num: "01", title: "Expert Repair", desc: "Internationally trained & certified technicians with deep domain expertise across mechanical, electrical, and control systems." },
+      { num: "02", title: "Preventive Maintenance", desc: "Scheduled maintenance programs specifically engineered to prevent costly breakdowns before they ever occur in tropical island climates." },
+      { num: "03", title: "24/7 Service Support", desc: "Round-the-clock emergency technical support — our rapid response team deploys by speedboat or seaplane whenever you need us." },
+      { num: "04", title: "Genuine Parts Fast Delivery", desc: "Only OEM-certified original spare parts sourced directly from authorized manufacturers, delivered rapidly to your island location." }
+    ];
+
+    const CLIENT_LOGOS = [
+      { name: "Sri Lanka Army", category: "Armed Forces & Defence", logo: "./clients/sri-lanka-army.png" },
+      { name: "Sri Lanka Navy", category: "Marine & Maritime Fleet", logo: "./clients/sri-lanka-navy.png" },
+      { name: "Sri Lanka Air Force", category: "Aviation & National Security", logo: "./clients/sri-lanka-air-force.png" },
+      { name: "Central Bank of Sri Lanka", category: "National Financial Institution", logo: "./clients/central-bank-of-sri-lanka.png" },
+      { name: "Base Hospital Angoda (IDH)", category: "National Healthcare & Critical Power", logo: "./clients/base-hospital-angoda-idh.png" },
+      { name: "Sri Lanka Tourism", category: "Tourism Development Authority", logo: "./clients/sri-lanka-tourism.png" },
+      { name: "Sri Lanka Telecom", category: "National Telecom & Data Hubs", logo: "./clients/sri-lanka-telecom.png" },
+      { name: "Sri Lanka Ports Authority", category: "Maritime Commercial Ports", logo: "./clients/sri-lanka-ports-authority.png" },
+      { name: "Ministry of Education", category: "Government Education Ministry", logo: "./clients/ministry-of-education.png" },
+      { name: "Sri Lanka Police & Defence", category: "Law Enforcement & Security", logo: "./clients/sri-lanka-police-defence.png" },
+      { name: "Ceylon Petroleum Corporation", category: "Energy & Fuel Distribution (CEYPETCO)", logo: "./clients/ceylon-petroleum-corporation.png" },
+      { name: "Dialog Axiata", category: "Leading Telecommunication Giant", logo: "./clients/dialog-axiata.png" },
+      { name: "Commercial Bank of Ceylon", category: "Commercial Banking & Financial Network", logo: "./clients/commercial-bank.png" },
+      { name: "Ceylinco Life", category: "Premier Life Insurance Company", logo: "./clients/ceylinco-life.png" },
+      { name: "BOI Sri Lanka", category: "Board of Investment & Industrial Zones", logo: "./clients/boi-sri-lanka.png" },
+      { name: "Mäga Engineering", category: "Premier Construction & Infrastructure", logo: "./clients/maga-engineering.png" },
+    ];
+
+    const BRANDS = [
+      { name: "Caterpillar (CAT)", logo: "./brands/cat.svg" },
+      { name: "Cummins", logo: "./brands/cummins.svg" },
+      { name: "Perkins", logo: "./brands/perkins.svg" },
+      { name: "Yanmar", logo: "./brands/yanmar.svg" },
+      { name: "Volvo Penta", logo: "./brands/volvo-penta.svg" },
+      { name: "Kohler", logo: "./brands/kohler.svg" },
+      { name: "Stamford", logo: "./brands/stamford.svg" },
+      { name: "Deep Sea Electronics", logo: "./brands/dse.svg" },
+    ];
+
+    function App() {
+      const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+      const [quotePrefill, setQuotePrefill] = useState('');
+      const [selectedService, setSelectedService] = useState(null);
+      const [toastMsg, setToastMsg] = useState(null);
+      const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+      const [sendingQuote, setSendingQuote] = useState(false);
+
+      const showToast = (msg) => {
+        setToastMsg(msg);
+        setTimeout(() => setToastMsg(null), 4500);
+      };
+
+      const handleOpenQuote = (title = '') => {
+        setQuotePrefill(title);
+        setIsQuoteOpen(true);
+      };
+
+      // Dispatches service request directly to sltecmaldives@gmail.com
+      const handleFormSubmit = async (e, formType) => {
+        e.preventDefault();
+        setSendingQuote(true);
+
+        const formData = new FormData(e.target);
+        const dataObj = {};
+        formData.forEach((val, key) => { dataObj[key] = val; });
+
+        dataObj["_subject"] = `⚡ [SERVICE REQUEST via SL TEC] ${dataObj["Service"] || formType} from ${dataObj["Name"] || "Client"}`;
+        dataObj["_captcha"] = "false";
+        dataObj["_template"] = "table";
+        dataObj["Target Email"] = TARGET_EMAIL;
+        dataObj["Timestamp"] = new Date().toLocaleString();
+
+        try {
+          const res = await fetch(`https://formsubmit.co/ajax/${TARGET_EMAIL}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(dataObj)
+          });
+          if (!res.ok) throw new Error("Dispatch failed");
+          setSendingQuote(false);
+          setIsQuoteOpen(false);
+          showToast(`Service Request sent directly to ${TARGET_EMAIL}! Our lead engineer will contact you shortly.`);
+          e.target.reset();
+        } catch (err) {
+          console.warn("API fallback to mailto:", err);
+          const mailSubject = encodeURIComponent(`Service Request: ${dataObj["Service"] || "Service"} - ${dataObj["Name"] || ""}`);
+          const mailBody = encodeURIComponent(JSON.stringify(dataObj, null, 2));
+          window.open(`mailto:${TARGET_EMAIL}?subject=${mailSubject}&body=${mailBody}`, '_blank');
+          setSendingQuote(false);
+          setIsQuoteOpen(false);
+          showToast(`Request prepared and sent to ${TARGET_EMAIL}!`);
+          e.target.reset();
+        }
+      };
+
+      return (
+        <div className="min-h-screen bg-[#050b17] text-slate-100 flex flex-col">
+          {/* Top Announcement Bar */}
+          <div className="bg-[#030712] border-b border-orange-500/20 text-xs py-2 px-4 text-slate-300">
+            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-400 font-bold text-[11px]">
+                  <i className="fa-solid fa-shield-halved mr-1"></i> 28+ Years Certified Excellence
+                </span>
+                <span className="hidden sm:inline text-slate-600">|</span>
+                <span className="text-slate-300">
+                  <i className="fa-solid fa-location-dot text-orange-400 mr-1"></i> Powering Every Island Across Maldives &bull; 🇲🇻 Maldives & 🇱🇰 Sri Lanka
+                </span>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="text-slate-400"><i className="fa-solid fa-envelope text-orange-400 mr-1"></i> {TARGET_EMAIL}</span>
+                <a href={`tel:${COMPANY_INFO.phone}`} className="font-bold text-orange-400 hover:text-orange-300">
+                  <i className="fa-solid fa-phone mr-1"></i> {COMPANY_INFO.phone}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Navigation */}
+          <nav className="sticky top-0 z-40 bg-[#050b17]/95 backdrop-blur-md border-b border-orange-500/20 py-3 shadow-lg">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+              <a href="#home" className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center font-black text-white shadow-lg shadow-orange-500/30">
+                  <i className="fa-solid fa-bolt text-lg"></i>
+                </div>
+                <div>
+                  <div className="font-montserrat font-black text-xl tracking-tight text-white flex items-center gap-1">
+                    SL<span className="text-orange-500">TEC</span>
+                    <span className="px-1.5 py-0.2 bg-orange-500/20 text-orange-400 text-[10px] rounded font-bold">MV</span>
+                  </div>
+                  <div className="text-[10px] uppercase font-bold tracking-widest text-slate-400">Total Technical Solution</div>
+                </div>
+              </a>
+
+              <div className="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-300">
+                <a href="#home" className="hover:text-orange-400 transition-colors">Home</a>
+                <a href="#spare-parts" className="hover:text-orange-400 transition-colors">Spare Parts</a>
+                <a href="#resorts" className="hover:text-orange-400 transition-colors">Resorts</a>
+                <a href="#services" className="hover:text-orange-400 transition-colors">Services</a>
+                <a href="#contact" className="hover:text-orange-400 transition-colors">Contact</a>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <a href={`tel:${COMPANY_INFO.phone}`} className="hidden sm:flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-xs font-bold text-slate-200 hover:border-orange-500">
+                  <i className="fa-solid fa-phone text-orange-400"></i>
+                  <span>{COMPANY_INFO.phone}</span>
+                </a>
+                <button
+                  onClick={() => handleOpenQuote()}
+                  className="px-4 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-montserrat font-bold text-xs sm:text-sm shadow-md shadow-orange-500/30"
+                >
+                  Confirm Service Request
+                </button>
+              </div>
+            </div>
+          </nav>
+
+          {/* Hero Section */}
+          <section id="home" className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="max-w-3xl">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs sm:text-sm font-semibold mb-6">
+                  <i className="fa-solid fa-bolt text-orange-400"></i>
+                  <span>28 Years of Experience &bull; Internationally Trained & Certified</span>
+                </div>
+
+                <h1 className="font-montserrat font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.1] mb-6">
+                  Reliable Generator{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-orange-500 block sm:inline">
+                    Sales, Repair & Maintenance
+                  </span>{' '}
+                  in Maldives
+                </h1>
+
+                <p className="text-base sm:text-lg text-slate-300 leading-relaxed mb-8">
+                  Powering Maldives — Every Island. Complete technical solutions for resorts, ship engines, panel boards, and industrial machinery with genuine spare parts supply.
+                </p>
+
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10">
+                  <button
+                    onClick={() => handleOpenQuote()}
+                    className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 text-white font-montserrat font-bold text-base shadow-xl shadow-orange-500/30 flex items-center justify-center gap-2"
+                  >
+                    <span>Request a Service Quote</span>
+                    <i className="fa-solid fa-arrow-right"></i>
+                  </button>
+
+                  <a
+                    href={`tel:${COMPANY_INFO.phone}`}
+                    className="px-7 py-3.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-orange-500 text-white font-montserrat font-semibold text-base flex items-center justify-center gap-2.5"
+                  >
+                    <i className="fa-solid fa-phone text-orange-400"></i>
+                    <span>Call Now: {COMPANY_INFO.phone}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Genuine Spare Parts Supply Banner matching Flyer 1 */}
+          <div id="spare-parts" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 w-full">
+            <div className="rounded-2xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 p-6 sm:p-8 text-slate-950 shadow-2xl border-2 border-yellow-200">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="flex items-center gap-5 text-center md:text-left">
+                  <div className="w-16 h-16 rounded-2xl bg-slate-950 text-amber-400 flex items-center justify-center text-3xl shrink-0">
+                    <i className="fa-solid fa-box-open"></i>
+                  </div>
+                  <div>
+                    <h2 className="font-montserrat font-black text-2xl sm:text-3xl lg:text-4xl uppercase tracking-tight text-slate-950 leading-none">
+                      Spare Parts Available &bull; Genuine Spare Parts Supply
+                    </h2>
+                    <p className="font-bold text-slate-900 text-base mt-2">
+                      Original Parts &bull; Fast Delivery &bull; All Major Brands Supported (Cummins, Perkins, CAT, Yanmar, Volvo Penta, Kohler, Stamford)
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => handleOpenQuote('Genuine Spare Parts Supply')}
+                  className="px-6 py-3 rounded-xl bg-slate-950 hover:bg-slate-900 text-amber-400 font-montserrat font-black text-sm uppercase shadow-xl shrink-0"
+                >
+                  Inquire Spare Parts
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Complete Technical Solutions for Resorts matching Flyer 2 */}
+          <section id="resorts" className="py-12 bg-[#071022] border-y border-orange-500/20 mb-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="bg-[#09152e] border-2 border-orange-500/40 rounded-3xl p-6 sm:p-10 shadow-2xl">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                  <div className="lg:col-span-7">
+                    <div className="inline-block px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 font-bold text-xs uppercase mb-3">
+                      Complete Technical Solutions for Resorts
+                    </div>
+                    <h2 className="font-montserrat font-black text-2xl sm:text-3xl text-white mb-3">
+                      Dear Resort Management Team,
+                    </h2>
+                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                      Greetings from <strong className="text-orange-400 font-bold">SL TEC - Total Technical Solution!</strong> We are your trusted technical partner across all Maldives islands with <strong className="text-white">28 years of experience</strong>.
+                    </p>
+
+                    <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 mb-6">
+                      <div className="text-xs font-bold text-orange-400 uppercase tracking-wider mb-2">SERVICES WE PROVIDE:</div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-slate-200">
+                        {SERVICES.map(s => (
+                          <div key={s.id} className="flex items-center gap-2">
+                            <i className="fa-solid fa-circle-check text-orange-400"></i>
+                            <span>{s.title}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <a href={`tel:${COMPANY_INFO.phone}`} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-montserrat font-black text-sm shadow-lg">
+                      <i className="fa-solid fa-phone"></i>
+                      <span>Call Now: {COMPANY_INFO.phone}</span>
+                    </a>
+                  </div>
+
+                  <div className="lg:col-span-5 bg-[#050b17] border border-orange-500/30 rounded-2xl p-6">
+                    <div className="text-center pb-3 mb-4 border-b border-slate-800">
+                      <h3 className="font-montserrat font-black text-xl text-orange-400 uppercase">
+                        OUR COMMITMENTS:
+                      </h3>
+                    </div>
+                    <div className="space-y-4">
+                      {COMMITMENTS.map((c, idx) => (
+                        <div key={idx} className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/30 flex items-center justify-center font-bold text-orange-400 text-xs shrink-0">
+                            {c.num}
+                          </div>
+                          <div>
+                            <div className="font-montserrat font-bold text-white text-sm">{c.title}</div>
+                            <div className="text-xs text-slate-300">{c.desc}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* 16 Client Logos Grid */}
+                <div className="mt-12 pt-8 border-t border-slate-800">
+                  <div className="text-center mb-6">
+                    <span className="text-xs font-bold uppercase tracking-widest text-orange-400">
+                      Our Prestigious Clients & Institutional Partners
+                    </span>
+                    <h3 className="font-montserrat font-black text-xl sm:text-2xl text-white mt-1">
+                      Trusted Across Sri Lanka & Maldives
+                    </h3>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+                    {CLIENT_LOGOS.map((client, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-white rounded-2xl p-2.5 flex items-center justify-center aspect-square shadow-lg hover:scale-105 transition-transform border border-white/20"
+                        title={client.name}
+                      >
+                        <img
+                          src={client.logo}
+                          alt={client.name}
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Engine Makes Strip */}
+                  <div className="mt-8 pt-6 border-t border-slate-800/80">
+                    <div className="text-center mb-4 text-xs font-bold uppercase tracking-wider text-slate-400">
+                      Supported Engine Makes & Control System Manufacturers
+                    </div>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+                      {BRANDS.map((b, i) => (
+                        <div key={i} className="p-3 bg-slate-900 rounded-xl border border-white/5 flex items-center justify-center hover:border-orange-500/40 transition-colors">
+                          <img src={b.logo} alt={b.name} className="h-7 w-full object-contain" />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* After-Sales Services We Offer */}
+          <section id="services" className="py-16 bg-[#050b17]">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center max-w-3xl mx-auto mb-14">
+                <div className="inline-flex items-center gap-2 mb-3">
+                  <span className="w-8 h-0.5 bg-orange-500 rounded-full"></span>
+                  <span className="text-xs uppercase font-extrabold tracking-widest text-orange-400">OUR SERVICES</span>
+                  <span className="w-8 h-0.5 bg-orange-500 rounded-full"></span>
+                </div>
+                <h2 className="font-montserrat font-black text-3xl sm:text-4xl text-white tracking-tight mb-3">
+                  Repair &bull; Maintenance &bull; Service
+                </h2>
+                <p className="text-slate-300 text-sm sm:text-base">
+                  Delivering dependable technical support across all Maldives atolls with 28 years of uninterrupted excellence.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                {SERVICES.map((s) => (
+                  <div key={s.id} className="bg-[#09152e]/70 border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 transition-all flex flex-col justify-between">
+                    <div>
+                      <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center mb-4 text-orange-400 text-xl">
+                        <i className={s.icon}></i>
+                      </div>
+                      <h3 className="font-montserrat font-bold text-lg text-white mb-2">{s.title}</h3>
+                      <p className="text-slate-300 text-xs leading-relaxed mb-4">{s.shortDesc}</p>
+                      <div className="space-y-1.5 mb-6">
+                        {s.features.slice(0, 3).map((f, i) => (
+                          <div key={i} className="flex items-center gap-2 text-xs text-slate-300">
+                            <i className="fa-solid fa-check text-orange-400 text-[10px]"></i>
+                            <span>{f}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="pt-3 border-t border-slate-800 flex justify-between items-center">
+                      <button onClick={() => setSelectedService(s)} className="text-xs font-bold text-orange-400 hover:text-orange-300">
+                        Details &rarr;
+                      </button>
+                      <button onClick={() => handleOpenQuote(s.title)} className="text-xs font-bold px-3 py-1 rounded bg-orange-500 text-white">
+                        Book Service
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Contact Section */}
+          <section id="contact" className="py-16 bg-[#071022]">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div className="lg:col-span-5">
+                  <h2 className="font-montserrat font-black text-3xl text-white mb-4">
+                    Ready to Power Up Your Operations?
+                  </h2>
+                  <p className="text-slate-300 text-sm mb-6">
+                    Fill out the form and our technical response team will immediately review your request and call you. Submissions are delivered to <strong>{TARGET_EMAIL}</strong>.
+                  </p>
+                  <div className="space-y-3 text-sm">
+                    <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                      <div className="text-xs uppercase text-slate-400 font-bold">24/7 Hotline</div>
+                      <div className="text-lg font-montserrat font-black text-orange-400">{COMPANY_INFO.phone}</div>
+                    </div>
+                    <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                      <div className="text-xs uppercase text-slate-400 font-bold">Email Dispatch</div>
+                      <div className="text-sm font-bold text-white">{TARGET_EMAIL}</div>
+                    </div>
+                    <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                      <div className="text-xs uppercase text-slate-400 font-bold">Service Area</div>
+                      <div className="text-sm font-bold text-white">Across All Maldives Islands & Atolls</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 16 Client Logos Grid */}
+                <div className="mt-12 pt-8 border-t border-slate-800">
+                  <div className="text-center mb-6">
+                    <span className="text-xs font-bold uppercase tracking-widest text-orange-400">
+                      Our Prestigious Clients & Institutional Partners
+                    </span>
+                    <h3 className="font-montserrat font-black text-xl sm:text-2xl text-white mt-1">
+                      Trusted Across Sri Lanka & Maldives
+                    </h3>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+                    {CLIENT_LOGOS.map((client, idx) => (
+                      <div
+                        key={idx}
+                        className="bg-white rounded-2xl p-2.5 flex items-center justify-center aspect-square shadow-lg hover:scale-105 transition-transform border border-white/20"
+                        title={client.name}
+                      >
+                        <img
+                          src={client.logo}
+                          alt={client.name}
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Engine Makes Strip */}
+                  <div className="mt-8 pt-6 border-t border-slate-800/80">
+                    <div className="text-center mb-4 text-xs font-bold uppercase tracking-wider text-slate-400">
+                      Supported Engine Makes & Control System Manufacturers
+                    </div>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+                      {BRANDS.map((b, i) => (
+                        <div key={i} className="p-3 bg-slate-900 rounded-xl border border-white/5 flex items-center justify-center hover:border-orange-500/40 transition-colors">
+                          <img src={b.logo} alt={b.name} className="h-7 w-full object-contain" />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-7">
+                  <div className="bg-[#09152e] border border-slate-800 rounded-2xl p-6 sm:p-8">
+                    <h3 className="font-montserrat font-bold text-xl text-white mb-4">Confirm Technical Request</h3>
+                    <form onSubmit={(e) => handleFormSubmit(e, 'Contact Inquiry')} className="space-y-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Your Name *</label>
+                          <input name="Name" required type="text" placeholder="Manager / Captain" className="w-full px-3 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white text-sm" />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Phone / WhatsApp *</label>
+                          <input name="Phone" required type="tel" placeholder="+960 7XXXXXX" className="w-full px-3 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white text-sm" />
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Service Required *</label>
+                          <select name="Service" required className="w-full px-3 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white text-sm">
+                            {SERVICES.map(s => <option key={s.id} value={s.title}>{s.title}</option>)}
+                            <option value="Genuine Spare Parts Supply">Genuine Spare Parts Supply</option>
+                            <option value="Emergency Breakdown Repair">Emergency Breakdown Repair</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Atoll Location *</label>
+                          <select name="Atoll" required className="w-full px-3 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white text-sm">
+                            {MALDIVES_ATOLLS.map((a, i) => <option key={i} value={a}>{a}</option>)}
+                          </select>
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Details / Requirements</label>
+                        <textarea name="Details" rows="3" placeholder="Provide machine make, symptoms or parts needed..." className="w-full px-3 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white text-sm"></textarea>
+                      </div>
+                      <button type="submit" disabled={sendingQuote} className="w-full py-3.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 font-montserrat font-bold text-sm text-white shadow-lg">
+                        {sendingQuote ? `Sending to ${TARGET_EMAIL}...` : "Confirm Service Request"}
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="bg-[#030712] text-slate-400 border-t border-orange-500/20 py-8 text-xs text-center">
+            <div className="max-w-7xl mx-auto px-4">
+              <p className="text-slate-300 mb-2">&copy; 2025 SL TEC – Total Technical Solution. All rights reserved. Powering Maldives &bull; Every Island 🇲🇻</p>
+              <p className="text-slate-500">Inquiries sent directly to: <span className="text-orange-400">{TARGET_EMAIL}</span> | Hotline: 7370267</p>
+            </div>
+          </footer>
+
+          {/* Quote Modal */}
+          {isQuoteOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+              <div className="relative w-full max-w-xl bg-[#081329] border border-orange-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl">
+                <button onClick={() => setIsQuoteOpen(false)} className="absolute top-5 right-5 text-slate-400 hover:text-white">
+                  <i className="fa-solid fa-xmark text-xl"></i>
+                </button>
+                <div className="flex items-center gap-2 mb-2">
+                  <i className="fa-solid fa-bolt text-orange-400"></i>
+                  <h3 className="font-montserrat font-bold text-2xl text-white">Request a Service or Quote</h3>
+                </div>
+                <p className="text-xs text-slate-400 mb-4">Direct dispatch to <strong>{TARGET_EMAIL}</strong></p>
+
+                <form onSubmit={(e) => handleFormSubmit(e, 'Modal Service Request')} className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Your Name *</label>
+                    <input name="Name" required type="text" placeholder="Chief Engineer / Manager" className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white text-sm" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Phone / WhatsApp *</label>
+                    <input name="Phone" required type="tel" placeholder="+960 7XXXXXX" className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white text-sm" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Service Needed *</label>
+                    <select name="Service" defaultValue={quotePrefill || 'All Types of Generators'} className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white text-sm">
+                      {SERVICES.map(s => <option key={s.id} value={s.title}>{s.title}</option>)}
+                      <option value="Genuine Spare Parts Supply">Genuine Spare Parts Supply</option>
+                      <option value="Emergency Breakdown Repair">Emergency Breakdown Repair</option>
+                    </select>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Atoll *</label>
+                      <select name="Atoll" required className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white text-sm">
+                        {MALDIVES_ATOLLS.map((a, i) => <option key={i} value={a}>{a}</option>)}
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Island / Vessel</label>
+                      <input name="Island_Vessel" placeholder="Resort or Safari Vessel" className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white text-sm" />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Problem Details</label>
+                    <textarea name="Details" rows="3" placeholder="Symptoms, generator capacity (kVA), or part required..." className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-white text-sm"></textarea>
+                  </div>
+                  <button type="submit" disabled={sendingQuote} className="w-full py-3 rounded-xl bg-orange-500 hover:bg-orange-600 font-bold text-white text-sm shadow-lg">
+                    {sendingQuote ? `Sending to ${TARGET_EMAIL}...` : "Confirm Service Request"}
+                  </button>
+                </form>
+              </div>
+            </div>
+          )}
+
+          {/* Toast Notification */}
+          {toastMsg && (
+            <div className="fixed top-6 right-6 z-50 max-w-md bg-[#09152e] border-2 border-orange-500 rounded-2xl p-4 shadow-2xl flex items-center gap-3">
+              <i className="fa-solid fa-circle-check text-orange-400 text-xl"></i>
+              <div className="text-xs text-white flex-1">{toastMsg}</div>
+              <button onClick={() => setToastMsg(null)} className="text-slate-400 hover:text-white">
+                <i className="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

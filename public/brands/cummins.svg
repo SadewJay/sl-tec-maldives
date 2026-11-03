@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 70">
+  <rect width="240" height="70" rx="8" fill="#111827"/>
+  <!-- Red Block C -->
+  <path d="M40,18 L70,18 L70,30 L55,30 L55,40 L70,40 L70,52 L40,52 Z" fill="#D3222A"/>
+  <!-- Cummins Text -->
+  <text x="82" y="45" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="24" fill="#FFFFFF" letter-spacing="-0.5">Cummins</text>
+</svg>

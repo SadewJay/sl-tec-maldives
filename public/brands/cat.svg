@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 70">
+  <rect width="240" height="70" rx="8" fill="#111827"/>
+  <!-- Yellow CAT Triangle -->
+  <polygon points="120,48 105,22 135,22" fill="#FFCD00"/>
+  <!-- CAT letters -->
+  <text x="50" y="47" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" letter-spacing="2">C</text>
+  <text x="105" y="47" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="34" fill="#111827" letter-spacing="2">A</text>
+  <text x="105" y="47" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="34" fill="none" stroke="#FFFFFF" stroke-width="2.5" letter-spacing="2">A</text>
+  <text x="145" y="47" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" letter-spacing="2">T</text>
+</svg>
