@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Menu, X, Zap, ChevronRight } from 'lucide-react';
+import { Phone, Menu, X, ChevronRight } from 'lucide-react';
 import { COMPANY_INFO } from '../data/websiteData';
 
 interface NavbarProps {
@@ -70,8 +70,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote }) => {
             className="flex items-center gap-3 group focus:outline-none"
             onClick={(e) => handleLinkClick(e, '#home')}
           >
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center shadow-lg shadow-orange-500/30 group-hover:scale-105 transition-transform duration-200">
-              <Zap className="w-6 h-6 text-white fill-white" />
+            <div className="w-11 h-11 rounded-xl overflow-hidden shadow-lg shadow-orange-500/20 group-hover:scale-105 transition-transform duration-200 bg-white/10 shrink-0 border border-white/10">
+              <img src="/logo.png" alt="SL TEC Total Technical Solution" className="w-full h-full object-cover" />
             </div>
             <div>
               <div className="flex items-center gap-1">

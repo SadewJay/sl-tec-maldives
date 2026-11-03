@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Phone, Mail, MapPin, Clock, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ArrowRight, ShieldCheck } from 'lucide-react';
 import { COMPANY_INFO, SERVICES } from '../data/websiteData';
 
 export const Footer: React.FC = () => {
@@ -12,8 +12,8 @@ export const Footer: React.FC = () => {
           {/* Col 1: Brand & Bio (4 cols) */}
           <div className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
-                <Zap className="w-5 h-5 text-white fill-white" />
+              <div className="w-11 h-11 rounded-xl overflow-hidden shadow-lg shadow-orange-500/20 bg-white/10 shrink-0 border border-white/10">
+                <img src="/logo.png" alt="SL TEC Total Technical Solution" className="w-full h-full object-cover" />
               </div>
               <div>
                 <span className="font-montserrat font-black text-xl text-white tracking-tight">
