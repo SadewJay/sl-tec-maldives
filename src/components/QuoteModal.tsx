@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Zap, Phone, CheckCircle2, Mail, MessageSquare, ExternalLink, Copy, Check } from 'lucide-react';
-import { COMPANY_INFO, MALDIVES_ATOLLS, SERVICES } from '../data/websiteData';
+import { COMPANY_INFO, LOCATION_GROUPS, SERVICES } from '../data/websiteData';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -52,8 +52,8 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     `• Phone/WhatsApp: ${formData.phone}\n` +
     `• Client Email: ${formData.email || 'Not provided'}\n` +
     `• Service Requested: ${formData.service}\n` +
-    `• Atoll Location: ${formData.atoll}\n` +
-    `• Island / Resort / Vessel: ${formData.island || 'Not specified'}\n` +
+    `• Location (Atoll / District): ${formData.atoll}\n` +
+    `• Island / Resort / City / Vessel: ${formData.island || 'Not specified'}\n` +
     `• Equipment / kVA: ${formData.generatorModel || 'Not specified'}\n` +
     `• Priority Level: ${priorityLabel}\n` +
     `• Issue Details: ${formData.details || 'None'}\n` +
@@ -340,7 +340,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">
-                    Atoll Location *
+                    Location (Atoll / District) *
                   </label>
                   <select
                     required
@@ -348,10 +348,14 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                     onChange={(e) => setFormData({ ...formData, atoll: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700/80 focus:border-orange-500 text-white text-sm outline-none"
                   >
-                    {MALDIVES_ATOLLS.map((atoll, i) => (
-                      <option key={i} value={atoll}>
-                        {atoll}
-                      </option>
+                    {LOCATION_GROUPS.map((grp) => (
+                      <optgroup key={grp.group} label={grp.group} className="bg-slate-950 text-orange-400 font-bold">
+                        {grp.locations.map((loc, i) => (
+                          <option key={i} value={loc} className="bg-slate-900 text-white font-normal">
+                            {loc}
+                          </option>
+                        ))}
+                      </optgroup>
                     ))}
                   </select>
                 </div>
@@ -360,13 +364,13 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">
-                    Island / Resort / Vessel Name
+                    Island / Resort / City / Vessel Name
                   </label>
                   <input
                     type="text"
                     value={formData.island}
                     onChange={(e) => setFormData({ ...formData, island: e.target.value })}
-                    placeholder="e.g. Baa Atoll Resort, Safari Yacht"
+                    placeholder="e.g. Soneva Fushi, Colombo 03, Kandy, Safari Yacht"
                     className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700/80 focus:border-orange-500 text-white text-sm outline-none"
                   />
                 </div>

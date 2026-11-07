@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, MapPin, Clock, Send, CheckCircle2, ShieldCheck, Mail, MessageSquare, ExternalLink, Copy, Check } from 'lucide-react';
-import { COMPANY_INFO, MALDIVES_ATOLLS, SERVICES } from '../data/websiteData';
+import { COMPANY_INFO, LOCATION_GROUPS, SERVICES } from '../data/websiteData';
 
 interface ContactProps {
   onSuccessToast: (msg: string) => void;
@@ -37,8 +37,8 @@ export const Contact: React.FC<ContactProps> = ({ onSuccessToast }) => {
     `• Phone/WhatsApp: ${formData.phone}\n` +
     `• Client Email: ${formData.email || 'Not provided'}\n` +
     `• Service Required: ${formData.service}\n` +
-    `• Atoll Location: ${formData.atoll}\n` +
-    `• Island / Resort / Vessel: ${formData.island || 'Not specified'}\n` +
+    `• Location (Atoll / District): ${formData.atoll}\n` +
+    `• Island / Resort / City / Vessel: ${formData.island || 'Not specified'}\n` +
     `• Machine / Generator Model: ${formData.generatorModel || 'Not specified'}\n` +
     `• Notes / Problem Description: ${formData.message || 'None'}\n` +
     `-----------------------------------------\n` +
@@ -384,10 +384,10 @@ export const Contact: React.FC<ContactProps> = ({ onSuccessToast }) => {
                         </select>
                       </div>
 
-                      {/* Atoll */}
+                      {/* Location (Atoll / District) */}
                       <div>
                         <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
-                          Atoll Location *
+                          Location (Atoll / District) *
                         </label>
                         <select
                           name="atoll"
@@ -396,27 +396,31 @@ export const Contact: React.FC<ContactProps> = ({ onSuccessToast }) => {
                           onChange={handleChange}
                           className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700/80 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 text-white text-sm outline-none transition-colors"
                         >
-                          {MALDIVES_ATOLLS.map((atoll, idx) => (
-                            <option key={idx} value={atoll}>
-                              {atoll}
-                            </option>
+                          {LOCATION_GROUPS.map((grp) => (
+                            <optgroup key={grp.group} label={grp.group} className="bg-slate-950 text-orange-400 font-bold">
+                              {grp.locations.map((loc, idx) => (
+                                <option key={idx} value={loc} className="bg-slate-900 text-white font-normal">
+                                  {loc}
+                                </option>
+                              ))}
+                            </optgroup>
                           ))}
                         </select>
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {/* Island or Resort Name */}
+                      {/* Island or Resort / City Name */}
                       <div>
                         <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">
-                          Island / Resort / Vessel Name
+                          Island / Resort / City / Vessel Name
                         </label>
                         <input
                           type="text"
                           name="island"
                           value={formData.island}
                           onChange={handleChange}
-                          placeholder="e.g. Soneva Fushi, Safari Vessel, Thilafushi"
+                          placeholder="e.g. Soneva Fushi, Colombo 03, Safari Vessel, Kandy"
                           className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700/80 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 text-white text-sm outline-none transition-colors"
                         />
                       </div>

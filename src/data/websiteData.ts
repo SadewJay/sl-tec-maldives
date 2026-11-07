@@ -476,3 +476,42 @@ export const MALDIVES_ATOLLS = [
   "Gnaviyani Atoll (Fuvahmulah)",
   "Seenu Atoll (Addu City)",
 ];
+
+export const SRI_LANKA_DISTRICTS = [
+  "Colombo District",
+  "Gampaha District",
+  "Kalutara District",
+  "Kandy District",
+  "Matale District",
+  "Nuwara Eliya District",
+  "Galle District",
+  "Matara District",
+  "Hambantota District",
+  "Jaffna District",
+  "Kilinochchi District",
+  "Mannar District",
+  "Vavuniya District",
+  "Mullaitivu District",
+  "Batticaloa District",
+  "Ampara District",
+  "Trincomalee District",
+  "Kurunegala District",
+  "Puttalam District",
+  "Anuradhapura District",
+  "Polonnaruwa District",
+  "Badulla District",
+  "Monaragala District",
+  "Ratnapura District",
+  "Kegalle District",
+];
+
+export const LOCATION_GROUPS = [
+  {
+    group: "🇲🇻 Maldives (Atolls)",
+    locations: MALDIVES_ATOLLS,
+  },
+  {
+    group: "🇱🇰 Sri Lanka (Districts)",
+    locations: SRI_LANKA_DISTRICTS,
+  },
+];
