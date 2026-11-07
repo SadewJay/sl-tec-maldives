@@ -36,7 +36,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestQuote }) => {
           {/* Top Pill Badge matching flyer */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs sm:text-sm font-semibold mb-6 backdrop-blur-md">
             <Ship className="w-4 h-4 text-orange-400" />
-            <span>28+ Years Experience &bull; Ship &amp; Craft All Repairs &bull; Generator Specialist &bull; Internationally Certified</span>
+            <span>28 Years of Industrial Experience &bull; Ship &amp; Craft All Repairs &bull; Generator Specialist &bull; Internationally Certified</span>
           </div>
 
           {/* Main Headline with Ship & Craft Repairs & Generators */}
