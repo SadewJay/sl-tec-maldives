@@ -40,17 +40,31 @@ export const Hero: React.FC<HeroProps> = ({ onRequestQuote }) => {
           </div>
 
           {/* Main Headline with Ship & Craft Repairs & Generators */}
-          <h1 className="font-montserrat font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.1] mb-6">
-            Reliable Generator &{' '}
+          <h1 className="font-montserrat font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.15] mb-4">
+            Reliable Generator,{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-orange-500 block sm:inline">
-              Ship &amp; Craft Repair Services
-            </span>{' '}
-            in Maldives
+              Ship &amp; Craft Solutions
+            </span>
           </h1>
 
+          {/* Core Offerings Sub-Header: Services | Repairs | Spare Parts */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-lg sm:text-2xl lg:text-3xl font-extrabold font-montserrat text-white mb-2">
+            <span className="text-orange-400">Services</span>
+            <span className="text-slate-600 font-normal">|</span>
+            <span className="text-amber-400">Repairs</span>
+            <span className="text-slate-600 font-normal">|</span>
+            <span className="text-orange-300">Spare Parts</span>
+          </div>
+
+          {/* Regional Presence: In Maldives & Sri Lanka */}
+          <div className="text-base sm:text-xl lg:text-2xl font-bold font-montserrat text-slate-200 mb-6 flex items-center gap-2">
+            <span>In Maldives &amp; Sri Lanka</span>
+            <span className="text-base sm:text-lg">🇲🇻 🇱🇰</span>
+          </div>
+
           {/* Subtitle description */}
-          <p className="text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed mb-6 font-normal">
-            Your trusted technical partner across all Maldives islands. Specialized in <strong className="text-white font-semibold">marine ship &amp; craft all repairs, propulsion overhauls, auxiliary engines, safari yachts, cargo vessels</strong>, all types of industrial machines, and island resort powerhouses. From major overhauls and synchronizing panels to genuine OEM spare parts delivered rapidly across every atoll.
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed mb-6 font-normal">
+            Your trusted engineering partner across Maldives &amp; Sri Lanka. Specialized in <strong className="text-white font-semibold">marine ship &amp; craft all repairs, propulsion overhauls, auxiliary engines, safari yachts, cargo vessels</strong>, all types of industrial machines, and powerhouse generators. From major overhauls and synchronizing panels to genuine OEM spare parts delivered rapidly.
           </p>
 
           {/* 5 Core Pillars Pills from Flyer */}
