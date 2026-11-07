@@ -33,27 +33,37 @@ export const EmergencyBanner: React.FC<EmergencyBannerProps> = ({ onRequestQuote
           </div>
 
           {/* Right Action Buttons */}
-          <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full lg:w-auto shrink-0">
+          <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full lg:w-auto shrink-0">
             <button
               onClick={onRequestQuote}
-              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-montserrat font-bold text-sm shadow-lg shadow-orange-500/30 transition-all duration-200 text-center"
+              className="w-full sm:w-auto px-5 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-montserrat font-bold text-sm shadow-lg shadow-orange-500/30 transition-all duration-200 text-center"
             >
               Book Service
             </button>
 
             <a
               href={`tel:${COMPANY_INFO.phone}`}
-              className="w-full sm:w-auto px-5 py-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-orange-500/50 text-white font-montserrat font-bold text-sm transition-all duration-200 flex items-center justify-center gap-2"
+              title="Maldives Emergency Line"
+              className="w-full sm:w-auto px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-orange-500/50 text-white font-montserrat font-bold text-xs sm:text-sm transition-all duration-200 flex items-center justify-center gap-2"
             >
               <Phone className="w-4 h-4 text-orange-400" />
-              <span>Call: {COMPANY_INFO.phone}</span>
+              <span>Call MV: {COMPANY_INFO.phone}</span>
+            </a>
+
+            <a
+              href={`tel:${COMPANY_INFO.rawPhoneSL}`}
+              title="Sri Lanka Technical Line"
+              className="w-full sm:w-auto px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-orange-500/50 text-white font-montserrat font-bold text-xs sm:text-sm transition-all duration-200 flex items-center justify-center gap-2"
+            >
+              <Phone className="w-4 h-4 text-orange-400" />
+              <span>Call LK: +94 77 056 8753</span>
             </a>
 
             <a
               href={COMPANY_INFO.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-montserrat font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all duration-200 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-montserrat font-bold text-xs sm:text-sm shadow-lg shadow-emerald-600/30 transition-all duration-200 flex items-center justify-center gap-2"
             >
               <MessageSquare className="w-4 h-4" />
               <span>WhatsApp</span>

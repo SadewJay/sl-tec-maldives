@@ -118,20 +118,26 @@ export const Footer: React.FC = () => {
           {/* Col 4: Contact & Atoll Support (3 cols) */}
           <div className="lg:col-span-3">
             <h4 className="font-montserrat font-bold text-white text-sm uppercase tracking-wider mb-4">
-              Atoll Support
+              Regional Support
             </h4>
             <div className="space-y-3 text-xs sm:text-sm mb-6">
-              <a href={`tel:${COMPANY_INFO.phone}`} className="flex items-center gap-2 hover:text-orange-400 transition-colors">
-                <Phone className="w-4 h-4 text-orange-400 shrink-0" />
-                <span className="font-bold text-white">Call: {COMPANY_INFO.phone}</span>
-              </a>
+              <div className="space-y-1.5">
+                <a href={`tel:${COMPANY_INFO.phone}`} className="flex items-center gap-2 hover:text-orange-400 transition-colors">
+                  <Phone className="w-4 h-4 text-orange-400 shrink-0" />
+                  <span className="font-bold text-white">MV Hotline: {COMPANY_INFO.intlPhone}</span>
+                </a>
+                <a href={`tel:${COMPANY_INFO.rawPhoneSL}`} className="flex items-center gap-2 hover:text-orange-400 transition-colors">
+                  <Phone className="w-4 h-4 text-orange-400 shrink-0" />
+                  <span className="font-bold text-white">LK Hotline: {COMPANY_INFO.phoneSL}</span>
+                </a>
+              </div>
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
-                <span>Boduthakurufaanu Magu, Malé, Republic of Maldives</span>
+                <span>Malé, Republic of Maldives &amp; Colombo, Sri Lanka</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-orange-400 shrink-0" />
-                <span>24/7 Emergency Support Hotline</span>
+                <span>24/7 Emergency Technical Support</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-orange-400 shrink-0" />
@@ -139,20 +145,28 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            {/* Direct hotline button */}
-            <a
-              href={`tel:${COMPANY_INFO.phone}`}
-              className="block w-full py-2.5 px-4 rounded-xl bg-orange-500/10 border border-orange-500/40 text-orange-400 hover:bg-orange-500 hover:text-white font-montserrat font-bold text-xs text-center transition-all duration-200"
-            >
-              Emergency Dispatch: 7370267
-            </a>
+            {/* Direct hotline buttons */}
+            <div className="grid grid-cols-2 gap-2">
+              <a
+                href={`tel:${COMPANY_INFO.phone}`}
+                className="block py-2.5 px-2 rounded-xl bg-orange-500/10 border border-orange-500/40 text-orange-400 hover:bg-orange-500 hover:text-white font-montserrat font-bold text-xs text-center transition-all duration-200"
+              >
+                MV: 7370267
+              </a>
+              <a
+                href={`tel:${COMPANY_INFO.rawPhoneSL}`}
+                className="block py-2.5 px-2 rounded-xl bg-orange-500/10 border border-orange-500/40 text-orange-400 hover:bg-orange-500 hover:text-white font-montserrat font-bold text-xs text-center transition-all duration-200"
+              >
+                LK: 0770568753
+              </a>
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar: Copyright & Tags */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
           <p className="text-slate-400 text-center md:text-left">
-            &copy; 2025 SL TEC – Total Technical Solution. All rights reserved. Powering Maldives &bull; Every Island 🇲🇻
+            &copy; 2025 SL TEC – Total Technical Solution. All rights reserved. Powering Maldives &amp; Sri Lanka &bull; 🇲🇻 🇱🇰
           </p>
 
           <div className="flex flex-wrap justify-center gap-2 text-slate-400 font-medium">
@@ -162,6 +176,7 @@ export const Footer: React.FC = () => {
             <span>#ResortEngineering</span>
             <span>#SpareParts</span>
             <span>#7370267</span>
+            <span>#0770568753</span>
           </div>
         </div>
       </div>

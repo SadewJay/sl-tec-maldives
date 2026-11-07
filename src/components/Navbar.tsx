@@ -113,13 +113,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote }) => {
           </div>
 
           {/* Right Action Buttons */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-2">
             <a
               href={`tel:${COMPANY_INFO.phone}`}
-              className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700/60 hover:border-orange-500/50 text-slate-200 text-sm font-semibold transition-all duration-200 hover:shadow-md"
+              title="Maldives Hotline"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-slate-900 border border-slate-700/60 hover:border-orange-500/50 text-slate-200 text-xs font-semibold transition-all duration-200 hover:shadow-md"
             >
-              <Phone className="w-4 h-4 text-orange-400" />
-              <span>{COMPANY_INFO.phone}</span>
+              <Phone className="w-3.5 h-3.5 text-orange-400" />
+              <span>🇲🇻 {COMPANY_INFO.phone}</span>
+            </a>
+
+            <a
+              href={`tel:${COMPANY_INFO.rawPhoneSL}`}
+              title="Sri Lanka Hotline"
+              className="hidden md:flex items-center gap-1.5 px-3 py-2 rounded-lg bg-slate-900 border border-slate-700/60 hover:border-orange-500/50 text-slate-200 text-xs font-semibold transition-all duration-200 hover:shadow-md"
+            >
+              <Phone className="w-3.5 h-3.5 text-orange-400" />
+              <span>🇱🇰 +94 77 056 8753</span>
             </a>
 
             <button
@@ -165,13 +175,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote }) => {
                 </a>
               ))}
               <div className="pt-3 border-t border-slate-800 flex flex-col gap-2">
-                <a
-                  href={`tel:${COMPANY_INFO.phone}`}
-                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-slate-900 border border-orange-500/40 text-orange-400 font-bold text-sm"
-                >
-                  <Phone className="w-4 h-4" />
-                  Call Direct: {COMPANY_INFO.phone}
-                </a>
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href={`tel:${COMPANY_INFO.phone}`}
+                    className="flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-slate-900 border border-orange-500/40 text-orange-400 font-bold text-xs"
+                  >
+                    <Phone className="w-3.5 h-3.5" />
+                    <span>MV: {COMPANY_INFO.phone}</span>
+                  </a>
+                  <a
+                    href={`tel:${COMPANY_INFO.rawPhoneSL}`}
+                    className="flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-slate-900 border border-orange-500/40 text-orange-400 font-bold text-xs"
+                  >
+                    <Phone className="w-3.5 h-3.5" />
+                    <span>LK: +94 77 056 8753</span>
+                  </a>
+                </div>
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);

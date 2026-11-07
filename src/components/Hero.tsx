@@ -78,22 +78,32 @@ export const Hero: React.FC<HeroProps> = ({ onRequestQuote }) => {
           </div>
 
           {/* Call to Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12">
+          <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-3 sm:gap-4 mb-12">
             <button
               onClick={() => onRequestQuote('Ship Engine & Generator Service')}
-              className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-orange-500 via-orange-600 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-montserrat font-bold text-base shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center justify-center gap-2 group"
+              className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-orange-500 via-orange-600 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-montserrat font-bold text-base shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center justify-center gap-2 group shrink-0"
             >
               <span>Request a Service</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
 
-            <a
-              href={`tel:${COMPANY_INFO.phone}`}
-              className="px-7 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-orange-500/50 text-white font-montserrat font-semibold text-base transition-all duration-200 flex items-center justify-center gap-2.5 shadow-lg"
-            >
-              <PhoneCall className="w-5 h-5 text-orange-400" />
-              <span>Call Hotline: {COMPANY_INFO.phone}</span>
-            </a>
+            <div className="flex flex-col sm:flex-row gap-2.5">
+              <a
+                href={`tel:${COMPANY_INFO.phone}`}
+                className="px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-orange-500/50 text-white font-montserrat font-semibold text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-lg"
+              >
+                <PhoneCall className="w-4 h-4 text-orange-400" />
+                <span>MV: {COMPANY_INFO.phone}</span>
+              </a>
+
+              <a
+                href={`tel:${COMPANY_INFO.rawPhoneSL}`}
+                className="px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-orange-500/50 text-white font-montserrat font-semibold text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-lg"
+              >
+                <PhoneCall className="w-4 h-4 text-orange-400" />
+                <span>LK: +94 77 056 8753</span>
+              </a>
+            </div>
           </div>
 
           {/* Key Stat Badges aligned horizontally */}

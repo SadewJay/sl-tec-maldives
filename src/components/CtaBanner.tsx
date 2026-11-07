@@ -31,18 +31,26 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onRequestQuote }) => {
         </p>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <a
             href={`tel:${COMPANY_INFO.phone}`}
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white hover:bg-slate-100 text-orange-600 font-montserrat font-black text-base shadow-2xl shadow-black/20 hover:shadow-black/30 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2.5"
+            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-white hover:bg-slate-100 text-orange-600 font-montserrat font-black text-sm sm:text-base shadow-2xl shadow-black/20 hover:shadow-black/30 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
           >
             <Phone className="w-5 h-5 text-orange-600" />
-            <span>Call Hotline: {COMPANY_INFO.phone}</span>
+            <span>Call MV: {COMPANY_INFO.phone}</span>
+          </a>
+
+          <a
+            href={`tel:${COMPANY_INFO.rawPhoneSL}`}
+            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-white hover:bg-slate-100 text-orange-600 font-montserrat font-black text-sm sm:text-base shadow-2xl shadow-black/20 hover:shadow-black/30 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
+          >
+            <Phone className="w-5 h-5 text-orange-600" />
+            <span>Call LK: +94 77 056 8753</span>
           </a>
 
           <button
             onClick={onRequestQuote}
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-orange-700/40 hover:bg-orange-700/60 border-2 border-white/80 text-white font-montserrat font-bold text-base hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-6 py-4 rounded-xl bg-orange-700/40 hover:bg-orange-700/60 border-2 border-white/80 text-white font-montserrat font-bold text-sm sm:text-base hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
           >
             <span>Request Instant Quote</span>
             <ArrowRight className="w-5 h-5" />

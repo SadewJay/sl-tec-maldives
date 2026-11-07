@@ -58,13 +58,14 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     `• Priority Level: ${priorityLabel}\n` +
     `• Issue Details: ${formData.details || 'None'}\n` +
     `-----------------------------------------\n` +
-    `Destination: ${TARGET_EMAIL} | Hotline: +960 7370267`;
+    `Destination: ${TARGET_EMAIL} | Hotlines: +960 7370267 (MV) / +94 77 056 8753 (LK)`;
 
   const emailSubject = encodeURIComponent(`[SERVICE REQUEST] ${formData.service} - ${formData.name} (${formData.atoll})`);
   const emailBody = encodeURIComponent(formattedDetails);
   const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${TARGET_EMAIL}&su=${emailSubject}&body=${emailBody}`;
   const mailtoUrl = `mailto:${TARGET_EMAIL}?subject=${emailSubject}&body=${emailBody}`;
-  const whatsappUrl = `https://wa.me/9607370267?text=${encodeURIComponent(formattedDetails)}`;
+  const whatsappMvUrl = `https://wa.me/9607370267?text=${encodeURIComponent(formattedDetails)}`;
+  const whatsappLkUrl = `https://wa.me/94770568753?text=${encodeURIComponent(formattedDetails)}`;
 
   const handleCopyDetails = () => {
     navigator.clipboard.writeText(formattedDetails);
@@ -183,17 +184,29 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                 <ExternalLink className="w-4 h-4 opacity-75" />
               </a>
 
-              {/* 2. Direct WhatsApp Dispatch */}
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-montserrat font-bold text-sm shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2.5 transition-all"
-              >
-                <MessageSquare className="w-5 h-5" />
-                <span>Instant Dispatch via WhatsApp (+960 7370267)</span>
-                <ExternalLink className="w-4 h-4 opacity-75" />
-              </a>
+              {/* 2. Direct WhatsApp Dispatch (Both MV & LK) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <a
+                  href={whatsappMvUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-3 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-montserrat font-bold text-xs shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-1.5 transition-all text-center"
+                >
+                  <MessageSquare className="w-4 h-4 shrink-0" />
+                  <span>WhatsApp MV (+960 7370267)</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-75 shrink-0" />
+                </a>
+                <a
+                  href={whatsappLkUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-3 px-3 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-montserrat font-bold text-xs shadow-lg shadow-emerald-700/25 flex items-center justify-center gap-1.5 transition-all text-center"
+                >
+                  <MessageSquare className="w-4 h-4 shrink-0" />
+                  <span>WhatsApp LK (+94 77 056 8753)</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-75 shrink-0" />
+                </a>
+              </div>
 
               {/* 3. Default Mail Client / Copy */}
               <div className="flex gap-2">
@@ -214,14 +227,23 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                 </button>
               </div>
 
-              {/* Direct Hotline */}
-              <a
-                href={`tel:${COMPANY_INFO.phone}`}
-                className="w-full py-3 px-4 rounded-xl bg-slate-900 border border-orange-500/30 text-orange-400 font-bold text-xs flex items-center justify-center gap-2 hover:bg-orange-500/10 transition-colors"
-              >
-                <Phone className="w-4 h-4" />
-                <span>Emergency Call Direct: {COMPANY_INFO.phone}</span>
-              </a>
+              {/* Direct Hotlines (MV & LK) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <a
+                  href={`tel:${COMPANY_INFO.phone}`}
+                  className="py-2.5 px-3 rounded-xl bg-slate-900 border border-orange-500/30 text-orange-400 font-bold text-xs flex items-center justify-center gap-1.5 hover:bg-orange-500/10 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>Call MV: {COMPANY_INFO.phone}</span>
+                </a>
+                <a
+                  href={`tel:${COMPANY_INFO.rawPhoneSL}`}
+                  className="py-2.5 px-3 rounded-xl bg-slate-900 border border-orange-500/30 text-orange-400 font-bold text-xs flex items-center justify-center gap-1.5 hover:bg-orange-500/10 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>Call LK: +94 77 056 8753</span>
+                </a>
+              </div>
             </div>
 
             <button

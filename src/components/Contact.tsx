@@ -42,13 +42,14 @@ export const Contact: React.FC<ContactProps> = ({ onSuccessToast }) => {
     `• Machine / Generator Model: ${formData.generatorModel || 'Not specified'}\n` +
     `• Notes / Problem Description: ${formData.message || 'None'}\n` +
     `-----------------------------------------\n` +
-    `Recipient: ${TARGET_EMAIL} | Hotline: +960 7370267`;
+    `Recipient: ${TARGET_EMAIL} | Hotlines: +960 7370267 (MV) / +94 77 056 8753 (LK)`;
 
   const emailSubject = encodeURIComponent(`[SERVICE REQUEST] ${formData.service} - ${formData.name} (${formData.atoll})`);
   const emailBody = encodeURIComponent(formattedDetails);
   const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${TARGET_EMAIL}&su=${emailSubject}&body=${emailBody}`;
   const mailtoUrl = `mailto:${TARGET_EMAIL}?subject=${emailSubject}&body=${emailBody}`;
-  const whatsappUrl = `https://wa.me/9607370267?text=${encodeURIComponent(formattedDetails)}`;
+  const whatsappMvUrl = `https://wa.me/9607370267?text=${encodeURIComponent(formattedDetails)}`;
+  const whatsappLkUrl = `https://wa.me/94770568753?text=${encodeURIComponent(formattedDetails)}`;
 
   const handleCopyDetails = () => {
     navigator.clipboard.writeText(formattedDetails);
@@ -137,23 +138,45 @@ export const Contact: React.FC<ContactProps> = ({ onSuccessToast }) => {
 
               {/* Contact Info Cards */}
               <div className="space-y-4 mb-8">
-                <a
-                  href={`tel:${COMPANY_INFO.phone}`}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-orange-500/40 transition-colors group"
-                >
-                  <div className="w-11 h-11 rounded-lg bg-orange-500/10 border border-orange-500/30 flex items-center justify-center shrink-0 group-hover:bg-orange-500 transition-colors">
-                    <Phone className="w-5 h-5 text-orange-400 group-hover:text-white transition-colors" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                      Emergency 24/7 Hotline
+                <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-lg bg-orange-500/10 border border-orange-500/30 flex items-center justify-center shrink-0">
+                      <Phone className="w-4 h-4 text-orange-400" />
                     </div>
-                    <div className="font-montserrat font-black text-lg text-white group-hover:text-orange-400 transition-colors">
-                      {COMPANY_INFO.phone}
+                    <div>
+                      <div className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                        Emergency 24/7 Hotlines
+                      </div>
+                      <div className="text-[11px] text-orange-400/80">Direct connection to lead engineers</div>
                     </div>
-                    <div className="text-xs text-orange-400/80">Direct connection to lead engineer</div>
                   </div>
-                </a>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                    <a
+                      href={`tel:${COMPANY_INFO.phone}`}
+                      className="flex items-center justify-between p-3 rounded-lg bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-orange-500/50 transition-colors group"
+                    >
+                      <div>
+                        <div className="text-[10px] uppercase font-bold text-orange-400">Maldives (MV)</div>
+                        <div className="font-montserrat font-black text-sm text-white group-hover:text-orange-300">
+                          +960 7370267
+                        </div>
+                      </div>
+                      <span className="text-xs text-slate-400 group-hover:text-white font-semibold">Call &rarr;</span>
+                    </a>
+                    <a
+                      href={`tel:${COMPANY_INFO.rawPhoneSL}`}
+                      className="flex items-center justify-between p-3 rounded-lg bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-orange-500/50 transition-colors group"
+                    >
+                      <div>
+                        <div className="text-[10px] uppercase font-bold text-orange-400">Sri Lanka (LK)</div>
+                        <div className="font-montserrat font-black text-sm text-white group-hover:text-orange-300">
+                          +94 77 056 8753
+                        </div>
+                      </div>
+                      <span className="text-xs text-slate-400 group-hover:text-white font-semibold">Call &rarr;</span>
+                    </a>
+                  </div>
+                </div>
 
                 <div className="flex items-start gap-4 p-4 rounded-xl bg-slate-900/80 border border-slate-800">
                   <div className="w-11 h-11 rounded-lg bg-orange-500/10 border border-orange-500/30 flex items-center justify-center shrink-0">
@@ -238,17 +261,29 @@ export const Contact: React.FC<ContactProps> = ({ onSuccessToast }) => {
                       <ExternalLink className="w-4 h-4 opacity-75" />
                     </a>
 
-                    {/* 2. Direct WhatsApp Dispatch */}
-                    <a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-montserrat font-bold text-sm shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2.5 transition-all"
-                    >
-                      <MessageSquare className="w-5 h-5" />
-                      <span>Instant Dispatch via WhatsApp (+960 7370267)</span>
-                      <ExternalLink className="w-4 h-4 opacity-75" />
-                    </a>
+                    {/* 2. Direct WhatsApp Dispatch (Both MV & LK) */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <a
+                        href={whatsappMvUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-3 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-montserrat font-bold text-xs shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-1.5 transition-all text-center"
+                      >
+                        <MessageSquare className="w-4 h-4 shrink-0" />
+                        <span>WhatsApp MV (+960 7370267)</span>
+                        <ExternalLink className="w-3.5 h-3.5 opacity-75 shrink-0" />
+                      </a>
+                      <a
+                        href={whatsappLkUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-3 px-3 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-montserrat font-bold text-xs shadow-lg shadow-emerald-700/25 flex items-center justify-center gap-1.5 transition-all text-center"
+                      >
+                        <MessageSquare className="w-4 h-4 shrink-0" />
+                        <span>WhatsApp LK (+94 77 056 8753)</span>
+                        <ExternalLink className="w-3.5 h-3.5 opacity-75 shrink-0" />
+                      </a>
+                    </div>
 
                     {/* 3. Default Mail Client / Copy */}
                     <div className="flex gap-2">
