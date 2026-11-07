@@ -59,4 +59,6 @@ export interface ClientItem {
   name: string;
   category: string;
   logo: string;
+  highlighted?: boolean;
+  badge?: string;
 }

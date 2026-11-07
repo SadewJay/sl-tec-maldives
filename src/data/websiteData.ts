@@ -180,6 +180,20 @@ export const BRANDS = [
 ];
 
 export const CLIENT_LOGOS: ClientItem[] = [
+  { 
+    name: "Cinnamon Grand Colombo", 
+    category: "5-Star Luxury Hotel & Hospitality", 
+    logo: "./clients/cinnamon-grand.png",
+    highlighted: true,
+    badge: "VIP Partner"
+  },
+  { 
+    name: "Shangri-La", 
+    category: "Luxury International Hotel & Resorts", 
+    logo: "./clients/shangri-la.webp",
+    highlighted: true,
+    badge: "VIP Partner"
+  },
   { name: "Sri Lanka Army", category: "Armed Forces & Defence", logo: "./clients/sri-lanka-army.png" },
   { name: "Sri Lanka Navy", category: "Marine & Maritime Fleet", logo: "./clients/sri-lanka-navy.png" },
   { name: "Sri Lanka Air Force", category: "Aviation & National Security", logo: "./clients/sri-lanka-air-force.png" },

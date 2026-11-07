@@ -9,7 +9,8 @@ import {
   Building2,
   Cpu,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Star
 } from 'lucide-react';
 import { WHY_US_FEATURES, BRANDS, CLIENT_LOGOS, COMPANY_INFO } from '../data/websiteData';
 
@@ -191,7 +192,7 @@ export const WhyUs: React.FC = () => {
                 Prestigious Clients &amp; Supported Manufacturers
               </h3>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                Delivering high-reliability power engineering to armed forces, national banks, telecom giants, and major industries.
+                Delivering high-reliability power engineering to 5-star luxury hotels, armed forces, national banks, and telecom giants.
               </p>
             </div>
 
@@ -233,8 +234,8 @@ export const WhyUs: React.FC = () => {
           {activeTab === 'clients' && (
             <div className="animate-fadeIn">
               <div className="mb-4 flex items-center justify-between text-xs text-slate-400">
-                <span>Government Ministries &bull; Armed Forces &bull; Commercial Banks &bull; Telecoms</span>
-                <span className="text-orange-400 font-semibold hidden sm:inline">Featured Institutional Partners</span>
+                <span>Luxury Hotels &amp; Resorts &bull; Armed Forces &bull; Commercial Banks &bull; Telecoms</span>
+                <span className="text-orange-400 font-semibold hidden sm:inline">Featured Institutional &amp; Luxury Partners</span>
               </div>
 
               {/* Slidable Container */}
@@ -253,14 +254,26 @@ export const WhyUs: React.FC = () => {
                     const pageItems = CLIENT_LOGOS.slice(pageIdx * itemsPerPage, (pageIdx + 1) * itemsPerPage);
                     return (
                       <div key={pageIdx} className="w-full shrink-0 px-0.5">
-                        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4">
+                        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4 pt-2">
                           {pageItems.map((client, idx) => (
                             <div
                               key={idx}
-                              className="group relative rounded-2xl bg-white p-3 sm:p-3.5 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20 border border-white/20 aspect-square text-center shadow-lg"
+                              className={`group relative rounded-2xl bg-white p-3 sm:p-3.5 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-xl aspect-square text-center shadow-lg ${
+                                client.highlighted
+                                  ? 'border-2 border-amber-400 ring-2 ring-amber-400/40 shadow-amber-500/20'
+                                  : 'border border-white/20 hover:shadow-orange-500/20'
+                              }`}
                               title={`${client.name} - ${client.category}`}
                             >
-                              <div className="w-full h-full flex items-center justify-center overflow-hidden">
+                              {/* Highlight VIP Badge */}
+                              {client.highlighted && (
+                                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white text-[8px] font-black uppercase tracking-wider shadow-md whitespace-nowrap z-10 border border-white/40 flex items-center gap-1">
+                                  <Star className="w-2.5 h-2.5 fill-current text-amber-200" />
+                                  <span>{client.badge || "VIP"}</span>
+                                </span>
+                              )}
+
+                              <div className="w-full h-full flex items-center justify-center overflow-hidden rounded-xl">
                                 <img
                                   src={client.logo}
                                   alt={client.name}
@@ -269,7 +282,7 @@ export const WhyUs: React.FC = () => {
                                 />
                               </div>
                               {/* Tooltip on hover */}
-                              <div className="absolute inset-0 rounded-2xl bg-slate-950/95 text-white p-2 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-center pointer-events-none">
+                              <div className="absolute inset-0 rounded-2xl bg-slate-950/95 text-white p-2 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-center pointer-events-none z-20">
                                 <span className="font-montserrat font-bold text-[11px] text-white leading-tight mb-1">
                                   {client.name}
                                 </span>
