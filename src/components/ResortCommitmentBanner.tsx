@@ -81,7 +81,7 @@ export const ResortCommitmentBanner: React.FC<ResortCommitmentBannerProps> = ({ 
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-orange-400 shrink-0" />
-                    <span>Ship & Transfer Vessel Engines</span>
+                    <span>Ship & Craft All Repairs</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-orange-400 shrink-0" />
@@ -93,7 +93,7 @@ export const ResortCommitmentBanner: React.FC<ResortCommitmentBannerProps> = ({ 
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-orange-400 shrink-0" />
-                    <span>Industrial Machinery Equipment</span>
+                    <span>All Type of Industrial Machine</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-orange-400 shrink-0" />

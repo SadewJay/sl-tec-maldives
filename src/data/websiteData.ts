@@ -34,15 +34,15 @@ export const SERVICES: ServiceItem[] = [
   {
     id: "ship-engines",
     iconName: "Anchor",
-    title: "Ship Engines",
-    shortDesc: "Marine propulsion and auxiliary engine overhaul, diagnostics, transmission repair, and full marine servicing for all vessel types in Maldivian waters.",
-    fullDesc: "Specialized marine mechanical solutions for safari yachts, resort passenger speedboats, cargo dhows, and inter-atoll commercial vessels. We handle marine corrosion, sea-water cooling, and classification compliance.",
+    title: "Ship & Craft All Repairs",
+    shortDesc: "Complete marine vessel and craft repairs, propulsion and auxiliary engine overhaul, hull maintenance, gearbox, transmission, and full marine servicing in Maldivian waters.",
+    fullDesc: "Specialized marine mechanical, electrical, and structural repair solutions for safari yachts, resort passenger speedboats, sea crafts, cargo dhows, and inter-atoll commercial vessels. We handle marine corrosion, sea-water cooling, and classification compliance.",
     features: [
+      "Ship & Craft Mechanical & Electrical Overhauls",
       "Marine Propulsion & Auxiliary Overhauls",
       "Crankshaft Grinding & Bearing Fitting",
       "Keel & Heat-Exchanger Descaling",
       "Hydraulic Transmission & Gearbox Overhauls",
-      "Wet Exhaust Manifold & Thermal Lagging",
       "Pre-Charter & Drydock Marine Surveys"
     ]
   },
@@ -94,9 +94,9 @@ export const SERVICES: ServiceItem[] = [
   {
     id: "industrial-machinery",
     iconName: "Settings",
-    title: "Industrial Machinery Equipment",
-    shortDesc: "Comprehensive preventive maintenance and overhaul of heavy industrial machinery, hydraulic systems, pumps, and manufacturing plant equipment.",
-    fullDesc: "Heavy mechanical engineering support for desalination plants, cold storage facilities, island utility providers, and manufacturing yards across Thilafushi and nationwide atolls.",
+    title: "All Type of Industrial Machine",
+    shortDesc: "Comprehensive repair, preventive maintenance, and overhaul of all types of industrial machines, hydraulic systems, pumps, and manufacturing plant equipment.",
+    fullDesc: "Heavy mechanical and electrical engineering support for all types of industrial machinery, desalination plants, cold storage facilities, island utility providers, and manufacturing yards across Thilafushi and nationwide atolls.",
     features: [
       "Industrial High-Pressure Water Pumps",
       "Hydraulic Cylinder & Valve Block Servicing",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PhoneCall, ArrowRight, Zap, Ship, Cpu, Package } from 'lucide-react';
+import { PhoneCall, ArrowRight, Zap, Ship, Cpu, Package, Settings } from 'lucide-react';
 import { COMPANY_INFO } from '../data/websiteData';
 
 interface HeroProps {
@@ -36,36 +36,40 @@ export const Hero: React.FC<HeroProps> = ({ onRequestQuote }) => {
           {/* Top Pill Badge matching flyer */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs sm:text-sm font-semibold mb-6 backdrop-blur-md">
             <Ship className="w-4 h-4 text-orange-400" />
-            <span>28+ Years Experience &bull; Ship Engines & Generator Specialist &bull; Internationally Certified</span>
+            <span>28+ Years Experience &bull; Ship &amp; Craft All Repairs &bull; Generator Specialist &bull; Internationally Certified</span>
           </div>
 
-          {/* Main Headline with Ship Engines & Generators */}
+          {/* Main Headline with Ship & Craft Repairs & Generators */}
           <h1 className="font-montserrat font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.1] mb-6">
             Reliable Generator &{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-orange-500 block sm:inline">
-              Ship Engine Services
+              Ship &amp; Craft Repair Services
             </span>{' '}
             in Maldives
           </h1>
 
           {/* Subtitle description */}
           <p className="text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed mb-6 font-normal">
-            Your trusted technical partner across all Maldives islands. Specialized in <strong className="text-white font-semibold">marine ship propulsion, auxiliary engines, safari yachts, cargo vessels</strong>, and island resort powerhouses. From major engine overhauls and synchronizing panels to genuine OEM spare parts delivered rapidly across every atoll.
+            Your trusted technical partner across all Maldives islands. Specialized in <strong className="text-white font-semibold">marine ship &amp; craft all repairs, propulsion overhauls, auxiliary engines, safari yachts, cargo vessels</strong>, all types of industrial machines, and island resort powerhouses. From major overhauls and synchronizing panels to genuine OEM spare parts delivered rapidly across every atoll.
           </p>
 
-          {/* 4 Core Pillars Pills from Flyer */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-8">
+          {/* 5 Core Pillars Pills from Flyer */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 mb-8">
             <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-900/60 border border-orange-500/20 text-xs text-slate-200">
               <Ship className="w-4 h-4 text-orange-400 shrink-0" />
-              <span className="font-semibold">Ship Engines</span>
+              <span className="font-semibold">Ship &amp; Craft All Repairs</span>
             </div>
             <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-900/60 border border-orange-500/20 text-xs text-slate-200">
               <Zap className="w-4 h-4 text-orange-400 shrink-0" />
               <span className="font-semibold">All Generators</span>
             </div>
             <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-900/60 border border-orange-500/20 text-xs text-slate-200">
+              <Settings className="w-4 h-4 text-orange-400 shrink-0" />
+              <span className="font-semibold">All Type of Industrial Machine</span>
+            </div>
+            <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-900/60 border border-orange-500/20 text-xs text-slate-200">
               <Cpu className="w-4 h-4 text-orange-400 shrink-0" />
-              <span className="font-semibold">Panel Boards & Controls</span>
+              <span className="font-semibold">Panel Boards &amp; Controls</span>
             </div>
             <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-900/60 border border-orange-500/20 text-xs text-slate-200">
               <Package className="w-4 h-4 text-orange-400 shrink-0" />
