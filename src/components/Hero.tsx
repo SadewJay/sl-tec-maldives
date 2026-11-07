@@ -64,7 +64,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestQuote }) => {
 
           {/* Subtitle description */}
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed mb-6 font-normal">
-            Your trusted engineering partner across Maldives &amp; Sri Lanka. Specialized in <strong className="text-white font-semibold">marine ship &amp; craft all repairs, propulsion overhauls, auxiliary engines, safari yachts, cargo vessels</strong>, all types of industrial machines and powerhouse generators. From major overhauls and synchronizing panels to genuine OEM spare parts delivered rapidly.
+            Your trusted engineering partner across Maldives &amp; Sri Lanka. Specialized in <strong className="text-white font-semibold">marine ship &amp; craft all repairs, propulsion overhauls, auxiliary engines, safari yachts, cargo vessels</strong> all types of industrial machines and powerhouse generators. From major overhauls and synchronizing panels to genuine OEM spare parts delivered rapidly.
           </p>
 
           {/* 5 Core Pillars Pills from Flyer */}
